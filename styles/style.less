@@ -1,0 +1,81 @@
+﻿html, body { 
+  height: 100%;
+}
+body {
+  display: flex;
+  overflow: hidden;
+}
+
+.bubbler {
+  width: 50%;
+  float: left;
+  padding: 0 10px;
+  
+  textarea {
+    height: 60px;
+    width: 100%;
+    resize: none;
+    overflow-y: auto;
+  }
+
+  .output {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    div {
+      @base: 2px;
+      position: relative;
+      width: $base;
+      height: $base;
+      border-radius: 50%;
+      margin: 1px;
+      background: lightgray;
+      display: inline-block;
+      box-shadow: inset 200px 200px rgba(0,0,0,0);
+      transition: box-shadow .2s;
+      
+      // create bubble sizes
+      .loop(@counter) when (@counter > 0) {
+            // call next iteration
+            .loop((@counter - 1));    
+
+            // code for each iteration
+            &[data-size="@{counter}"] {
+                // shade
+                background-color: hsl(@counter * 7 - 300, 50%, 50%);
+
+                // size
+                width:  (@base * @counter);
+                height: (@base * @counter);
+            }
+        }
+
+        .loop(50); // launch the loop
+
+      // darken
+      &:hover {
+        z-index: 100;
+        box-shadow: inset 200px 200px rgba(0,0,0,.4);
+
+        // add tooltip
+        &:before {
+          display: inline-block;
+          top: -25px;
+          position: absolute;
+          font-size: smaller;
+          background: rgba(0,0,0, .8);
+          color: whitesmoke;
+          font: 12px/22px sans-serif;
+          border-radius: 3px;
+          padding: 0 10px;
+          content: attr(data-word);
+        }
+      }
+    }
+  }
+}
