@@ -1,7 +1,7 @@
 $(".bubbler textarea").keyup(function(){
     var text = $(this).val();
   
-    var list = text.split(/[^a-zA-Z\d\-']/);
+    var list = text.split(/[^a-zA-Z']/);
     var bubbles = "";
     
     $.each(list, function (i, word) {

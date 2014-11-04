@@ -2,14 +2,23 @@
 body {
   height: 100%;
 }
-body {
-  display: flex;
-  overflow: hidden;
+.headline {
+  text-align: center;
+}
+.minimalLink {
+  text-decoration: none;
+}
+.minimalLink:hover {
+  text-decoration: underline;
 }
 .bubbler {
-  width: 50%;
+  width: 46%;
   float: left;
-  padding: 0 10px;
+  padding: 0 2%;
+}
+.bubbler h3 {
+  margin-bottom: 7px;
+  margin-top: 0;
 }
 .bubbler textarea {
   height: 60px;
