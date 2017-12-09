@@ -4,7 +4,7 @@ TextBubbler
 A graphical representation of word length in a body of text
 
 Live Page:  
-http://kylemitofsky.com/TextBubbler
+https://kylemit.github.io/TextBubbler/index.html
 
 Based off this reddit thread:  
 http://www.reddit.com/r/dataisbeautiful/comments/2l6gq1/
